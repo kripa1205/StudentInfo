@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Grades</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <header><h1 id="studentName">Academic Record</h1></header>
+    <nav>
+        <ul>
+            <li><a href="dashboard.html">Home</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="index.html">Logout</a></li>
+        </ul>
+    </nav>
+    <main>
+        <table id="gradesTable">
+          
+        </table>
+    </main>
+
+    <script>
+     
+        const students = {
+            "john":   { name: "John Doe", math: "A", science: "B+", history: "A-", english: "B", pe: "A" },
+            "nick":   { name: "Nick Scott", math: "C", science: "C-", history: "B", english: "D", pe: "A+" },
+            "gracie": { name: "Gracie Beck", math: "A+", science: "A", history: "A", english: "A-", pe: "B" },
+            "james":  { name: "James Smith", math: "B", science: "B", history: "B-", english: "C", pe: "C" },
+            "winne":  { name: "Winne Millier", math: "A", science: "A-", history: "B+", english: "B", pe: "A" },
+            "alice":  { name: "Alice Johnson", math: "B+", science: "B", history: "A", english: "A", pe: "B-" }
+        };
+
+       
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id');
+        const data = students[id];
+
+        
+        if (data) {
+            document.getElementById('studentName').innerText = data.name + "'s Grades";
+            document.getElementById('gradesTable').innerHTML = `
+                <tr><th>Subject</th><th>Grade</th></tr>
+                <tr><td>Math</td><td>${data.math}</td></tr>
+                <tr><td>Science</td><td>${data.science}</td></tr>
+                <tr><td>History</td><td>${data.history}</td></tr>
+                <tr><td>English</td><td>${data.english}</td></tr>
+                <tr><td>Physical Education</td><td>${data.pe}</td></tr>
+            `;
+        } else {
+        
+            document.getElementById('studentName').innerText = "Select a student from the Profile page";
+        }
+    </script>
+</body>
+</html>

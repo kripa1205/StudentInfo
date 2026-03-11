@@ -51,6 +51,9 @@ table {
     width: 100%;
     background: white;
     border-collapse: collapse;
+    margin-top: 20px;
+    border-radius:8px;
+    overflow: hidden;
 }
 
 th, td {
@@ -59,7 +62,9 @@ th, td {
     text-align: left;
 }
 
-th { background-color: #eee; }
+th { background-color: #567292; 
+    color: white;
+}
 
 .course-list li {
     background: white;
